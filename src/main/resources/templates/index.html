@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello</title>
+</head>
+<body>
+root page
+
+<div>Content of fragmentContextHolder for menus:
+    <span th:text="${fragmentContextHolder.getForFragmentName('menus')}" />
+</div>
+
+<!--@thymesVar id="fragment" type="be.xentricator.test.jobrunrmongodb.fragments.FragmentContext"-->
+<div th:with="fragment=${fragmentContextHolder.getForFragmentName('menus')}">
+    <div th:include="${fragment.template} :: ${fragment.fragment}"></div>
+</div>
+
+</body>
+</html>
